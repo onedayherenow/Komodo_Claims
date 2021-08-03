@@ -1,0 +1,6 @@
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Repo\bin\Debug\KomodoClaims_Repo.dll
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Repo\bin\Debug\KomodoClaims_Repo.pdb
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Repo\obj\Debug\KomodoClaims_Repo.csproj.AssemblyReference.cache
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Repo\obj\Debug\KomodoClaims_Repo.csproj.CoreCompileInputs.cache
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Repo\obj\Debug\KomodoClaims_Repo.dll
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Repo\obj\Debug\KomodoClaims_Repo.pdb

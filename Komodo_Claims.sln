@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KomodoClaims_Console", "KomodoClaims_Console\KomodoClaims_Console.csproj", "{51380208-FE2B-4D5C-A0DD-26D15E58FE99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KomodoClaims_Repo", "KomodoClaims_Repo\KomodoClaims_Repo.csproj", "{C2CA6CCA-A982-4D24-B469-477890DAFB42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KomodoClaims_Tests", "KomodoClaims_Tests\KomodoClaims_Tests.csproj", "{49AFDCFE-995F-4FC2-971D-F2A443607C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51380208-FE2B-4D5C-A0DD-26D15E58FE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51380208-FE2B-4D5C-A0DD-26D15E58FE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51380208-FE2B-4D5C-A0DD-26D15E58FE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51380208-FE2B-4D5C-A0DD-26D15E58FE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2CA6CCA-A982-4D24-B469-477890DAFB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CA6CCA-A982-4D24-B469-477890DAFB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CA6CCA-A982-4D24-B469-477890DAFB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CA6CCA-A982-4D24-B469-477890DAFB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49AFDCFE-995F-4FC2-971D-F2A443607C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49AFDCFE-995F-4FC2-971D-F2A443607C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49AFDCFE-995F-4FC2-971D-F2A443607C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49AFDCFE-995F-4FC2-971D-F2A443607C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {509F10AF-0040-4A7E-A0DC-04B1DEDCC288}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2 @@
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Tests\obj\Debug\KomodoClaims_Tests.csproj.AssemblyReference.cache
+C:\Users\oneda\source\repos\Komodo_Claims\KomodoClaims_Tests\obj\Debug\KomodoClaims_Tests.csproj.CoreCompileInputs.cache

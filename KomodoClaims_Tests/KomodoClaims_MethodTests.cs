@@ -4,113 +4,74 @@ using System;
 
 namespace KomodoClaims_Repo
 {
-
 	[TestClass]
-	public class ClaimUI
+	public class KomodoClaims_MethodTests
 	{
+			private ClaimRepository _repo;  //intitalizing
+			private Claim _claim; //initiallizing
 
-		[TestMethod]
+			[TestInitialize] //this will run before each test
+			public void Arrange()
+			{
+				_repo = new ClaimRepository();  //new instance of field with access to all methods
+				_claim = new Claim(1735, "Car was in collision", 2250, DateTime.Parse("05/15/2021"), DateTime.Parse("05/21/2021"), true, ClaimType.Car);  //new claim object
 
-		//public void DisplayClaims()
-		//{
-		// Console.WriteLine("{0,5} {1,10} {2,-10}", "Claim ID", "Claim Type", "Claim Description");
-		//}
+				_repo.AddClaimToList(_claim);  //added content to repo, now accessable
 
-		//ProgramUI testClaim = new ProgramUI();
-		//testClaim.Run();
+			}
 
+			//create method
+			[TestMethod]
+			public void AddToList_ShouldGetNotNull()
+			{
+				//AAA paradigm, Arrange, Act, Assert
 
+				//Arrange --> setting up playing field
+				Claim creatorClaim = new Claim();   //new claim to add
+				creatorClaim.ClaimID = 9;  //made the claim id my favorite number
+				ClaimRepository repository = new ClaimRepository();   //new repo object for repo methods
+																	
 
+				//Act  --> run code we want to test
+				repository.AddClaimToList(creatorClaim);   //we added the claim object to our repo
+				Claim addedToRepo = repository.GetClaimByID(9);  //get the claim and assign it as a copy to empty claim object
 
+				//Assert -->  Use the assert to verify expected outcome
+				Assert.IsNotNull(addedToRepo);  //if object (by ID 9) and has not been added, test will fail
+			}
 
-	}
+			//read method
+			[TestMethod]
+			public void GetClaimsList_ShouldNotGetNull()
+			{	//arrange has been done in test initializer
+				//both my 1. act and 2. assert is nested within another
+			Assert.IsNotNull(_repo.GetClaimsList());  //act & assert
+			}
+			
+			//update
+			[TestMethod]
+			public void UpdateExistingClaim_ShouldReturnTrue()
+			{
+				// Arrange & Test initialize
+				Claim updatedClaim = new Claim(182, "Cracked window on passenger side", 3500, DateTime.Parse("05/19/2021"), DateTime.Parse("05/28/2021"), true, ClaimType.Car);
 
+				//act
+				bool updateResult = _repo.UpdateExistingClaim(9, updatedClaim);   //we update the claim by id number 9, with the new updatedClaim
 
+				//Assert
+				Assert.IsTrue(updateResult);
+			}
 
-	[TestClass]
-	public class ClaimRepository
-	{
+			//delete
+			[TestMethod]
+			public void RemoveClaimFromList_ShouldReturnTrue()
+			{	//everything has been arranged already in the test initializer
 
-		private ClaimRepository _repo;  //intitalizing
-		private Claim _claim; //initiallizing
+				//act  , implement our delete of the initialied claim, by their ID
+				bool deleteResult = _repo.RemoveClaimFromList(_claim.ClaimID);
 
-		[TestInitialize] //this will run before each test
-		public void Arrange()
-		{
-			_repo = new ClaimRepository();  //new instance of field with access to all methods
-			_claim = new Claim(1735, "Car was in collision", 2250, DateTime.Parse("05/15/2021"), DateTime.Parse("05/21/2021"), true, ClaimType.Car);  //new object of streaming content
-
-			_repo.AddClaimToList(_claim);  //added content to repo, now accessable
-
-		}
-
-		//add method
-		[TestMethod]
-		public void AddToList_ShouldGetNotNull()
-		{
-
-			//AAA paradigm, Arrange, Act, Assert
-
-			//Arrange --> setting up playing field
-			Claim content = new Claim();   //new object to stream
-			content.ClaimID = "Toy Story";  //made the title toy story
-			ClaimRepository repository = new ClaimRepository();   //new repo object, blank constructor already exists.
-																  //^^^ now we have access to the repo methods
-
-			//Act  --> run code we want to test
-			repository.AddContentToList(content);   //we added the streaming object to our repo
-			Claim contentFromDirectory = repository.GetContentByTitle("Toy Story");
-
-			//Assert -->  Use the assert to verify expected outcome
-			Assert.IsNotNull(contentFromDirectory);  //if title does not exist in directory and has not been added, test will fail
-		}
-
-		//update
-		//we dont have to do every single thing to setup every single time
-		[TestMethod]
-		public void UpdateExistingContent_ShouldReturnTrue()
-		{
-			// Arrange
-			//Test initialize
-			Claim newContent = new Claim("Rubber", "A car tire comes to life", "R", 4.3, false, ClaimType.RomCom);
-
-			//act
-			bool updateResult = _repo.UpdateExistingContent("Rubber", newContent);
-
-			//Assert
-			Assert.IsTrue(updateResult);
-		}
-
-
-		[DataTestMethod]   //tests your data
-		[DataRow("Rubber", true)]
-		[DataRow("Toy Story", false)]
-		public void UpdateExistingContent_ShouldMatchGivenBool(string originalTitle, bool shouldUpdate) //will change title
-		{
-			// Arrange
-			//Test initialize
-			Claim newContent = new Claim("Rubber", "A car tire comes to life", "R", 4.3, false, ClaimType.RomCom);
-
-			//act
-			bool updateResult = _repo.UpdateExistingContent(originalTitle, newContent);
-
-			//Assert
-			Assert.AreEqual(shouldUpdate, updateResult);
-
-		}
-
-		[TestMethod]
-		public void DeleteContent_ShouldReturnTrue()
-		{
-			//arrange
-			//test initializer
-
-			//act
-			bool deleteResult = _repo.RemoveContentByList(_content.ClaimID);
-
-			//assert
-			Assert.IsTrue(deleteResult);
-		}
-
+				//assert
+				Assert.IsTrue(deleteResult);
+			}
 	}
 }

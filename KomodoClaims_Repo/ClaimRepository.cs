@@ -11,13 +11,10 @@ namespace KomodoClaims_Repo
 		public readonly List<Claim> _listOfClaims = new List<Claim>();   //field made up of the claim objects, not repos
 																		 //field usables in all crud methods, they can all use the same list in all methods, persisting object
 																		 //the methods need to be used outside, public
-
-
 		//create
 		public void AddClaimToList(Claim content) //add claim to list, building entryways into our class
 		{
 			_listOfClaims.Add(content);  //anything with an underscore and camelcase is a field
-
 		}
 
 		//read
@@ -50,7 +47,6 @@ namespace KomodoClaims_Repo
 			}
 		}
 
-
 		//delete
 		public bool RemoveClaimFromList(int id)
 		{
@@ -73,8 +69,6 @@ namespace KomodoClaims_Repo
 			}
 		}
 
-
-
 		//helper method
 		public Claim GetClaimByID(int id)   //returns an object of the list
 		{
@@ -87,6 +81,5 @@ namespace KomodoClaims_Repo
 			}
 			return null; //if we find it we return, if not return null
 		}
-
 	}
 }

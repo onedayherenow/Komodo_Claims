@@ -7,7 +7,6 @@ using KomodoClaims_Repo;
 
 namespace KomodoClaims_Repo
 {
-
 	public enum ClaimType
 	{
 		Car = 1,
@@ -27,13 +26,10 @@ namespace KomodoClaims_Repo
 		public bool IsValid { get; set; }
 		public ClaimType TypeOfClaim { get; set; }
 
-
-
 		//constructors
-
 		public Claim() { }
 
-		//cant go out using title, can only go in,, scope
+		//cant go out can only go in,, scope
 		public Claim(int claimID, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, bool isValid, ClaimType typeOfClaim)
 		{
 			ClaimID = claimID;
@@ -44,7 +40,5 @@ namespace KomodoClaims_Repo
 			IsValid = isValid;
 			TypeOfClaim = typeOfClaim;
 		}
-
-
 	}
 }

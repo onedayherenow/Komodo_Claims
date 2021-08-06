@@ -21,6 +21,7 @@ namespace KomodoClaims_Repo
 		//menu  ---we want these private
 		private void Menu()
 		{
+			Console.Clear();   //in case we came back from sub-menus
 			bool keepRunning = true;
 			while (keepRunning)
 			{
@@ -70,6 +71,7 @@ namespace KomodoClaims_Repo
 		//create new claim
 		private void CreateNewClaim()
 		{
+			Console.Clear();
 			Claim newClaim = new Claim(); //we declare it first so that we can then use the property of object for user input
 
 			//ID
@@ -141,11 +143,11 @@ namespace KomodoClaims_Repo
 			}
 
 			//is valid
-			void ReturnerOfValidation()
-			{
+			void ReturnerOfValidation()   
+			{	//we set the numDaysAfter equal to the int number of days after an incident that a claim was made
 				int numDaysAfter = NumberOfDaysBetweeenIncidentAndClaim(newClaim.DateOfIncident, newClaim.DateOfClaim);
 
-				bool Valid = IsValid(numDaysAfter);
+				bool Valid = IsValid(numDaysAfter); //is true if days are within 30 days
 
 				if (Valid == true)
 				{
@@ -179,10 +181,10 @@ namespace KomodoClaims_Repo
 			// which is equal to out list inside our repository, which has access to CRUD methods
 			List<Claim> listOfContent = _claimRepo.GetClaimsList();
 
-			Console.WriteLine("{0,-10} {1,-12} {2,-25} {3,-8} {4,-18} {5,-10} {6, 10}", "Claim ID", "Claim Type", "Claim Description", "Claim Amount", "Date of Incident", "Date of Claim", "Is Valid");
+			Console.WriteLine("{0,-10} {1,-12} {2,-24} {3,-9} {4,-22} {5,-22} {6, 10}", "Claim ID", "Claim Type", "Description", "Amount", "Incident Date", "Claim Date", "Is Valid");
 			foreach (Claim claims in listOfContent)
 			{
-				Console.WriteLine("{0,-10} {1,-12} {2,-25} {3,-8} {4,-18} {5,-10} {6, 10}", claims.ClaimID, claims.TypeOfClaim, claims.Description, claims.ClaimAmount, claims.DateOfIncident, claims.DateOfClaim, claims.IsValid);
+				Console.WriteLine("{0,-10} {1,-12} {2,-24} {3,-9} {4,-22} {5,-22} {6, 10}", claims.ClaimID, claims.TypeOfClaim, claims.Description, claims.ClaimAmount, claims.DateOfIncident, claims.DateOfClaim, claims.IsValid);
 			}
 		}
 
@@ -273,7 +275,7 @@ namespace KomodoClaims_Repo
 		private void SeedContentList()
 		{
 			Claim seed1 = new Claim(1735, "Car was in collision", 2250, DateTime.Parse("05/15/2021"), DateTime.Parse("05/21/2021"), true, ClaimType.Car);
-			Claim seed2 = new Claim(1738, "Hurricane tore roof off home's room", 28500, DateTime.Parse("05/18/2021"), DateTime.Parse("06/25/2021"), false, ClaimType.Home);
+			Claim seed2 = new Claim(1738, "Roof has leaking", 28500, DateTime.Parse("05/18/2021"), DateTime.Parse("06/25/2021"), false, ClaimType.Home);
 			Claim seed3 = new Claim(1832, "Home was broken into", 3500, DateTime.Parse("05/19/2021"), DateTime.Parse("05/26/2021"), true, ClaimType.Theft);
 
 			_claimRepo.AddClaimToList(seed1);
@@ -303,20 +305,12 @@ namespace KomodoClaims_Repo
 			}
 		}
 
-		public void DisplayClaims(List<Claim> _allClaims)
-		{
-			Console.WriteLine("{0,-13} {1,-14} {2,-20} {3,-16} {4,-20} {5,-17} {6, -15}", "Claim ID", "Claim Type", "Claim Description", "Claim Amount", "Date of Incident", "Date of Claim", "Is Valid");
-			foreach (Claim claims in _allClaims)
-			{
-				Console.WriteLine("{0,-13} {1,-14} {2,-20} {3,-16} {4,-20} {5,-17} {6, -15}", claims.ClaimID, claims.TypeOfClaim, claims.Description, claims.ClaimAmount, claims.DateOfIncident, claims.DateOfClaim, claims.IsValid);
-			}
-		}
 
 		//Helper Methods
 		private void PressAnyKeyToContinue()
 		{
 			Console.WriteLine("\n" +
-			"Press any key to continue ...");
+			"Press any key to continue ...");   //engages user input forward
 			Console.ReadKey();
 		}
 

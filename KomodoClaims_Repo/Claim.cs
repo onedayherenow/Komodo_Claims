@@ -7,9 +7,9 @@ using KomodoClaims_Repo;
 
 namespace KomodoClaims_Repo
 {
-	public enum ClaimType
+	public enum ClaimType   
 	{
-		Car = 1,
+		Car = 1,  //because it defaults at 0
 		Home,
 		Theft
 	}
